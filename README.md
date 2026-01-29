@@ -1,15 +1,22 @@
-# action-repo
+# Action Repository
 
-This repository demonstrates GitHub Actions and webhook integration.
+This repository is used only to **generate GitHub events** (push, pull request, merge)
+for testing a GitHub Webhook receiver.
 
-## Features
-- Triggers webhook on Push, Pull Request, and Merge events
-- Sends event data to a registered endpoint (see webhook-repo)
+## Purpose
+- Trigger `push`, `pull_request`, and `merge` events
+- Acts as the **source repository**
+- Does NOT contain backend or webhook code
 
-## Setup
-1. Fork or clone this repository.
-2. Configure the webhook endpoint in `.github/workflows/webhook.yml` by replacing `<WEBHOOK_ENDPOINT>` with your actual endpoint URL.
-3. Push changes or open pull requests to trigger events.
+## How it works
+Any push or pull request made to this repository automatically triggers
+a GitHub Webhook configured in the repository settings.
 
-## Related
-- See `webhook-repo` for the Flask/MongoDB endpoint implementation.
+## How to trigger events
+
+### Trigger PUSH
+```bash
+echo "test" >> test.txt
+git add .
+git commit -m "Trigger push event"
+git push
