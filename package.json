@@ -1,0 +1,8 @@
+{
+  "name": "action-repo",
+  "version": "1.0.0",
+  "description": "GitHub repo for webhook event testing",
+  "main": "index.js",
+  "dependencies": {},
+  "scripts": {}
+}
